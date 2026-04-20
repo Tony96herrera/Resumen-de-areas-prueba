@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Acceso a Reportes</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+		<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<style>
+		.login100-form { position: relative; }
+		.login100-form-title { padding-bottom: 24px; }
+		.subtitle-login {
+			font-family: Poppins-Regular;
+			font-size: 14px;
+			line-height: 1.5;
+			color: #666;
+			text-align: center;
+			display: block;
+			margin-top: -10px;
+			margin-bottom: 20px;
+		}
+		.auth-divider {
+			position: relative;
+			text-align: center;
+			margin: 20px 0;
+			font-family: Poppins-Regular;
+			font-size: 13px;
+			color: #999;
+		}
+		.auth-divider::before,
+		.auth-divider::after {
+			content: "";
+			position: absolute;
+			top: 50%;
+			width: 40%;
+			height: 1px;
+			background: #e6e6e6;
+		}
+		.auth-divider::before { left: 0; }
+		.auth-divider::after { right: 0; }
+		.social-buttons {
+			display: flex;
+			gap: 10px;
+			flex-direction: column;
+		}
+		.social-btn {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 10px;
+			width: 100%;
+			height: 50px;
+			border-radius: 25px;
+			font-family: Montserrat-Bold;
+			font-size: 14px;
+			line-height: 1.5;
+			color: #555;
+			background: #f7f7f7;
+			border: 1px solid #e6e6e6;
+			transition: all 0.3s ease;
+		}
+		.social-btn:hover { background: #ebebeb; }
+		.form-message {
+			display: none;
+			margin-top: 16px;
+			padding: 12px 16px;
+			border-radius: 12px;
+			font-family: Poppins-Regular;
+			font-size: 13px;
+			line-height: 1.5;
+		}
+		.form-message.error { display: block; background: #fff1f0; color: #b42318; border: 1px solid #fecdca; }
+		.form-message.success { display: block; background: #ecfdf3; color: #027a48; border: 1px solid #abefc6; }
+		.form-footer-note {
+			font-family: Poppins-Regular;
+			font-size: 12px;
+			line-height: 1.5;
+			color: #999;
+			text-align: center;
+			padding-top: 24px;
+		}
+		.loading {
+			opacity: 0.7;
+			pointer-events: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-pic js-tilt" data-tilt>
+					<img src="images/img-01.png" alt="Imagen de acceso">
+				</div>
+
+				<form id="loginForm" class="login100-form validate-form">
+					<span class="login100-form-title">Acceso a reportes</span>
+					<span class="subtitle-login">Solo usuarios autorizados</span>
+
+					<div class="wrap-input100 validate-input" data-validate="El correo es obligatorio">
+						<input id="email" class="input100" type="email" name="email" placeholder="Correo corporativo" autocomplete="email">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="La contraseña es obligatoria">
+						<input id="password" class="input100" type="password" name="pass" placeholder="Contraseña" autocomplete="current-password">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+					</div>
+					
+					<div class="container-login100-form-btn">
+						<button id="loginButton" class="login100-form-btn" type="submit">Iniciar sesión</button>
+					</div>
+
+					<div class="auth-divider">o continúa con</div>
+
+					<div class="social-buttons">
+						<button id="googleLogin" class="social-btn" type="button">
+							<i class="fa fa-google" aria-hidden="true"></i>
+							Google
+						</button>
+						<button id="microsoftLogin" class="social-btn" type="button">
+							<i class="fa fa-windows" aria-hidden="true"></i>
+							Microsoft
+						</button>
+					</div>
+
+					<div class="text-center p-t-12">
+						<a id="forgotPassword" class="txt2" href="#">¿Olvidaste tu contraseña?</a>
+					</div>
+
+					<div id="formMessage" class="form-message"></div>
+
+					<div class="form-footer-note">
+						El alta de usuarios no es pública. Deben ser autorizados previamente por administración.
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="vendor/select2/select2.min.js"></script>
+	<script src="vendor/tilt/tilt.jquery.min.js"></script>
+	<script>
+		$('.js-tilt').tilt({ scale: 1.05 })
+	</script>
+	<script src="js/main.js"></script>
+	<script src="firebase-config.js"></script>
+	<script type="module" src="js/firebase-auth.js"></script>
+</body>
+</html>
